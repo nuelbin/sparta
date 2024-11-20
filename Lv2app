@@ -1,0 +1,38 @@
+package calculator;
+
+import java.util.Scanner;
+
+public class app {
+
+    public static void main(String[] args) {
+        Calculator calcul = new Calculator();
+        Scanner sc = new Scanner(System.in);
+
+        boolean onOff = true;
+        while(onOff) {
+            System.out.print("첫번째 숫자를 입력하세요: "); //첫번째 숫자 입력 요구
+            int a = sc.nextInt(); //Scanner로 input값을 받음
+
+
+            System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");//사칙연산 기호 입력 요구
+            char b = sc.next().charAt(0);//Scanner로 input값을 받아서 charAt에 저장
+
+
+            System.out.print("두번째 숫자를 입력하세요: ");
+            int c = sc.nextInt();
+
+
+            calcul.calculate(a, b, c);
+
+            calcul.listMemory();
+
+            System.out.print("프로그램을 종료하려면 'exit' 를 입력해주세요. 계속 진행 하시려면 'yes' 를 입력해 주세요: ");
+            String exit = sc.next();
+
+            if (exit.equals("exit")) {
+                System.out.println("프로그램을 종료합니다.");
+                onOff = false;
+            }
+        }
+    }
+}
