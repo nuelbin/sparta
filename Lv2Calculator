@@ -1,0 +1,59 @@
+package calculator;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Calculator { //클래스
+
+    private int result;
+    public List<Integer> values = new ArrayList<>();
+
+    public Calculator() {
+
+    }
+
+    public void calculate(int num1, char icon, int num2) {   //method 기능
+//        this.num1 = num1;
+//        this.icon = icon;
+//        this.num2 = num2;
+
+        //switch 문을 사용할까 하다가 if 로 변경, 사유: 그냥해보고 싶어서
+        if (icon == '+') {
+            result = num1 + num2;
+            System.out.println("계산된 값은 " + result + "입니다.");
+
+        } else if (icon == '-') {
+            result = num1 - num2;
+            System.out.println("계산된 값은 " + result + " 입니다.");
+
+        } else if (icon == '*') {
+            result = num1 * num2;
+            System.out.println("계산된 값은 " + result + " 입니다.");
+
+        } else if (icon == '/') {
+            if (num2 != 0) {
+                result = num1 / num2;
+                System.out.println("계산된 값은 " + result + " 입니다.");
+            } else {
+                System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
+            }
+        } else {
+            System.out.println("기호를 잘못 입력하셨습니다.");
+
+
+        }
+    }
+
+    // 연산 결과를 불러와서 리스트 메모리에 저장하기 위한 메서드.
+    // add
+    public void listMemory() {
+        values.add(result);
+
+        int i = 1;
+        for (Integer a : values) {
+            System.out.println(i + "번째 저장된 연산 값은: " + a);
+            i++;
+        }
+    }
+}
