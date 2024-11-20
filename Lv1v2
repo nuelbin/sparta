@@ -1,0 +1,60 @@
+
+import java.util.Scanner;
+
+public class app2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean onOff = true;
+
+
+        do {
+        System.out.print("첫번째 숫자를 입력해주세요: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("사칙연산 기호를 입력해주세요: ");
+        char icon = scanner.next().charAt(0);
+
+        System.out.print("두번째 숫자를 입력해주세요: ");
+        int num2 = scanner.nextInt();
+
+
+        int result = 0;
+            if (icon == '+') {
+                System.out.println("입력된 기호는 " + '+' + "입니다.");
+                result = num1 + num2;
+                System.out.println("계산된 값은 " + result + "입니다.");
+
+            } else if (icon == '-') {
+                System.out.println("입력된 기호는 " + '-' + "입니다.");
+                result = num1 - num2;
+                System.out.println("계산된 값은 " + result + " 입니다.");
+
+            } else if (icon == '*') {
+                System.out.println("입력된 기호는 " + '*' + "입니다.");
+                result = num1 * num2;
+                System.out.println("계산된 값은 " + result + " 입니다.");
+
+            } else if (icon == '/') {
+                System.out.println("입력된 기호는 " + '/' + "입니다.");
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("계산된 값은 " + result + " 입니다.");
+                } else {
+                    System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
+                }
+            } else {
+                System.out.println("기호를 잘못 입력하셨습니다.");
+            }
+
+            scanner.nextLine();
+
+            System.out.print("프로그램을 종료하려면 'exit' 를 입력해주세요. 계속 진행 하시려면 Enter를 입력해 주세요: ");
+            String exit = scanner.nextLine();
+            onOff = exit.equals("exit") == false;
+        } while (onOff);
+
+        System.out.println("프로그램을 종료합니다.");
+        scanner.close();
+    }
+}
